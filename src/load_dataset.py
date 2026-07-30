@@ -1,8 +1,12 @@
 import pandas as pd
+from preprocessing import clean_workbook
 
 FILE = "data/Dataset HackathonTourism - IT DEL.xlsx"
 
-def load_all_data():
+def load_all_data(clean=False):
+    if clean:
+        return clean_workbook(FILE)
+
     excel = pd.ExcelFile(FILE)
 
     datasets = {}
